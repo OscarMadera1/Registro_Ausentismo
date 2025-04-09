@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block table %}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>{{title}}</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href={% url "index" %}>Home</a></li>
+                <li class="breadcrumb-item"><a href={% url "listar_permiso" %}>Permisos</a></li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+
+                    <!-- Table with stripped rows -->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Docente</th>
+                                <th scope="col">Fecha de solicitud</th>
+                                <th scope="col">Fecha de inicio</th>
+                                <th scope="col">Fecha de terminación</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for c in object_list %}
+                            <tr>
+                                <th scope="row">{{forloop.counter}}</th>
+                                <td>{{c.docente}}</td>
+                                <td>{{c.fecha_solicitud}}</td>
+                                <td>{{c.fecha_inicio_permiso}}</td>
+                                <td>{{c.fecha_fin_permiso}}</td>
+                                <td>{{c.descripcion}}</td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm m-0.5" href=" {% url "editar_permiso" c.id %} " title="
+                                        Editar"><i class="bi bi-pencil-square "></i>
+                                    </a>
+                                    <a class="btn btn-danger btn-sm"href=" {% url "eliminar_permiso" c.id %} "
+                                        title=" Eliminar"><i class="bi bi-trash-fill"></i></a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+
+                    </table>
+                    <!-- End Table with stripped rows -->
+                    <a class="btn btn-primary" href=" {% url "crear_permiso" %} "><i class=" bi bi-plus-lg">
+                        Agregar</i></a>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
