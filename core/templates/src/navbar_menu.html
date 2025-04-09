@@ -1,0 +1,73 @@
+{% load static %}
+
+{% block body %}
+<aside id="sidebar" class="sidebar">
+
+  <ul class="sidebar-nav" id="sidebar-nav">
+
+    <li class="nav-item">
+      <a class="nav-link " href={% url  "index" %}>
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li><!-- End Dashboard Nav -->
+    <a class="nav-link collapsed" href={% url  "listar_docente" %}>
+      <i class="bx bxs-book-reader"></i>
+      <span>Gestionar docentes</span>
+    </a>
+    <li class="nav-item">
+     
+    </li><!-- End Docentes Nav -->
+
+    
+      <a class="nav-link collapsed" href= {% url "listar_permiso" %}>
+        <i class="bi bi-journal-text"></i>
+        <span>Solicitar permiso</span>
+        
+      </a>
+    <!-- End Permisos Nav -->
+
+    <a class="nav-link collapsed" href={% url  "listar_sedes" %}>
+      <i class="bi bi-bank2"></i>
+      <span>Gestionar Sedes</span>
+    </a>
+    <li class="nav-item">
+    <!-- End Sedes Nav -->
+
+    <a class="nav-link collapsed" href={% url  "reportes" %}>
+      <i class="bi bi-graph-up"></i>
+      <span>Reportes</span>
+    </a>
+    <li class="nav-item">
+    <!-- End Sedes Nav -->
+
+    <li class="nav-heading">Pages</li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="users-profile.html">
+        <i class="bi bi-person"></i>
+        <span>Perfil</span>
+      </a>
+    </li><!-- End Profile Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href={% url "contacto" %}>
+        <i class="bi bi-envelope"></i>
+        <span>Contactenos</span>
+      </a>
+    </li><!-- End Register Page Nav -->
+
+    <li class="nav-item">
+      <form action= "{% url 'logout' %}" method="post">
+        {% csrf_token %}
+      <a class="nav-link collapsed" href= "#">        
+          <button type="submit" class="dropdown-item d-flex align-items-center"><i
+              class="bi bi-box-arrow-right"></i>Salir</button>       
+      </a>
+    </form>
+    </li><!-- End Blank Page Nav -->
+
+  </ul>
+
+</aside>
+{% endblock %}

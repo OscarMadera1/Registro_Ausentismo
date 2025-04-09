@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block form_edit %}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>{{title}}</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href= {% url "index" %}>Home</a></li>
+                <li class="breadcrumb-item"><a href= {% url "listar_docente" %}>Docentes</a></li>
+                <li class="breadcrumb-item active">{{title}}</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <form clas="form-control form-control-md" action="#" method="post">
+        {% csrf_token %}
+        <p><strong>¿Desea eliminar el docente {{object.name|upper}} {{object.apellido|upper}} definitivamente?</strong></p>
+        <button class="btn btn-danger" type="submit"><i class="bi bi-trash-fill "></i> Eliminar</button>
+        <a href=" {% url "listar_docente" %} " class="btn btn-primary" type="reset"><i class="bi bi-x-diamond-fill"></i> Cancelar</a>
+    </form>
+</main>
+
+{% endblock %}

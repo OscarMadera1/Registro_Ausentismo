@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block table %}
+
+<main id="main" class="main">
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{title}}</h5>
+
+                        <!-- Table with stripped rows -->
+                        <div class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
+                            <div class="datatable-top">
+                                <div class="datatable-dropdown">
+                                    <label>
+                                        <select class="datatable-selector" name="per-page">
+                                            <option value="5">5</option>
+                                            <option value="10" selected="">10</option>
+                                            <option value="15">15</option>
+                                            <option value="-1">All</option>
+                                        </select> entries per page
+                                    </label>
+                                </div>
+                                <div class="datatable-search">
+                                    <input class="datatable-input" placeholder="Search..." type="search" name="search"
+                                        title="Search within table">
+                                </div>
+                            </div>
+                            <div class="datatable-container">
+                                <table
+                                    class="table datatable datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table datatable-table">
+                                    <thead>
+                                        <tr>
+                                            <th data-sortable="true" aria-sort="descending" class="datatable-descending"
+                                                style="width: 26.69491525423729%;">
+                                                <button class="datatable-sorter">
+                                                    <b>N</b>ame
+                                                </button>
+                                            </th>
+                                            <th data-sortable="true" style="width: 9.533898305084746%;">
+                                                <button class="datatable-sorter">Ext.</button>
+                                            </th>
+                                            <th data-sortable="true" style="width: 28.60169491525424%;">
+                                                <button class="datatable-sorter">City</button>
+                                            </th>
+                                            <th data-format="YYYY/DD/MM" data-sortable="true" data-type="date"
+                                                style="width: 16.63135593220339%;">
+                                                <button class="datatable-sorter">Start Date</button>
+                                            </th>
+                                            <th data-sortable="true" class="red" style="width: 18.53813559322034%;">
+                                                <button class="datatable-sorter">Completion</button>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-index="0">
+                                            <td>Zelenia Roman</td>
+                                            <td>7516</td>
+                                            <td>Redwater</td>
+                                            <td>2012/03/03</td>
+                                            <td class="green">31%</td>
+                                        </tr>
+                                        <tr data-index="1">
+                                            <td>Zachery Morgan</td>
+                                            <td>6730</td>
+                                            <td>Collines-de-l'Outaouais</td>
+                                            <td>2006/04/09</td>
+                                            <td class="green">51%</td>
+                                        </tr>
+                                        <tr data-index="2">
+                                            <td>Yoko Freeman</td>
+                                            <td>4077</td>
+                                            <td>Lidköping</td>
+                                            <td>2002/27/12</td>
+                                            <td class="green">48%</td>
+                                        </tr>
+                                        <tr data-index="3">
+                                            <td>Wyatt Riley</td>
+                                            <td>5694</td>
+                                            <td>Cavaion Veronese</td>
+                                            <td>2012/19/02</td>
+                                            <td class="green">67%</td>
+                                        </tr>
+                                        <tr data-index="4">
+                                            <td>Wyatt Mccarthy</td>
+                                            <td>3547</td>
+                                            <td>Patan</td>
+                                            <td>2014/23/06</td>
+                                            <td class="green">9%</td>
+                                        </tr>
+                                        <tr data-index="5">
+                                            <td>Willow Gilliam</td>
+                                            <td>3497</td>
+                                            <td>Amqui</td>
+                                            <td>2009/29/11</td>
+                                            <td class="green">30%</td>
+                                        </tr>
+                                        <tr data-index="6">
+                                            <td>Walker Nixon</td>
+                                            <td>6901</td>
+                                            <td>Metz</td>
+                                            <td>2011/12/11</td>
+                                            <td class="green">41%</td>
+                                        </tr>
+                                        <tr data-index="7">
+                                            <td>Vivien Dominguez</td>
+                                            <td>5653</td>
+                                            <td>Bargagli</td>
+                                            <td>2001/09/01</td>
+                                            <td class="green">86%</td>
+                                        </tr>
+                                        <tr data-index="8">
+                                            <td>Vielka Olsen</td>
+                                            <td>3745</td>
+                                            <td>Vrasene</td>
+                                            <td>2016/08/01</td>
+                                            <td class="green">70%</td>
+                                        </tr>
+                                        <tr data-index="9">
+                                            <td>Ursula Reynolds</td>
+                                            <td>7544</td>
+                                            <td>Southampton</td>
+                                            <td>1999/16/12</td>
+                                            <td class="green">61%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="datatable-bottom">
+                                <div class="datatable-info">Showing 1 to 10 of 100 entries</div>
+                                <nav class="datatable-pagination">
+                                    <ul class="datatable-pagination-list">
+                                        <li class="datatable-pagination-list-item datatable-hidden datatable-disabled">
+                                            <button data-page="1" class="datatable-pagination-list-item-link"
+                                                aria-label="Page 1">‹</button>
+                                        </li>
+                                        <li class="datatable-pagination-list-item datatable-active"><button
+                                                data-page="1" class="datatable-pagination-list-item-link"
+                                                aria-label="Page 1">1</button></li>
+                                        <li class="datatable-pagination-list-item"><button data-page="2"
+                                                class="datatable-pagination-list-item-link"
+                                                aria-label="Page 2">2</button></li>
+                                        <li class="datatable-pagination-list-item"><button data-page="3"
+                                                class="datatable-pagination-list-item-link"
+                                                aria-label="Page 3">3</button></li>
+                                        <li class="datatable-pagination-list-item"><button data-page="4"
+                                                class="datatable-pagination-list-item-link"
+                                                aria-label="Page 4">4</button></li>
+                                        <li class="datatable-pagination-list-item"><button data-page="5"
+                                                class="datatable-pagination-list-item-link"
+                                                aria-label="Page 5">5</button></li>
+                                        <li class="datatable-pagination-list-item"><button data-page="6"
+                                                class="datatable-pagination-list-item-link"
+                                                aria-label="Page 6">6</button></li>
+                                        <li class="datatable-pagination-list-item"><button data-page="7"
+                                                class="datatable-pagination-list-item-link"
+                                                aria-label="Page 7">7</button></li>
+                                        <li
+                                            class="datatable-pagination-list-item datatable-ellipsis datatable-disabled">
+                                            <button class="datatable-pagination-list-item-link">…</button>
+                                        </li>
+                                        <li class="datatable-pagination-list-item"><button data-page="10"
+                                                class="datatable-pagination-list-item-link"
+                                                aria-label="Page 10">10</button></li>
+                                        <li class="datatable-pagination-list-item"><button data-page="2"
+                                                class="datatable-pagination-list-item-link"
+                                                aria-label="Page 2">›</button></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- End Table with stripped rows -->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

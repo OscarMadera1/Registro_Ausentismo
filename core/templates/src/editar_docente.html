@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+{{title}}
+{% endblock %}
+
+
+{% block form_edit %}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>{{title}}</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href={% url "index" %}>Home</a></li>
+                <li class="breadcrumb-item"><a href={% url "listar_docente" %}>Docentes</a></li>
+                <li class="breadcrumb-item active">Editar docente</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <form clas="form-control form-control-md" action="#" method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button class="btn btn-primary" type="submit"><i class="bi bi-save2 "></i> Guradar</button>
+    </form>
+</main>
+
+
+{% endblock %}

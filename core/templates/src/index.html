@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block table %}
+<main id="main" class="main">
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-xl-8 col-md-6">
+            <div id="permisoCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <!-- Permisos del día -->
+                <div class="carousel-item active">
+                  <div class="card">
+                    <h5 class="card-header bg-primary text-white">Permisos | Hoy</h5>
+                    <div class="card-body">
+                      {% if permisos_dia %}
+                      <ul>
+                        {% for permiso in permisos_dia %}
+                        <li>{{ permiso.docente }} - {{ permiso.descripcion }} ({{permiso.fecha_inicio_permiso|date:"d/m/Y"}})</li>
+                        {% endfor %}
+                      </ul>
+                      {% else %}
+                      <p>No hay permisos solicitados hoy.</p>
+                      {% endif %}
+                    </div>
+                    <h5 class="card-footer">Total: {{total_permisos_dia}} </h5>
+                  </div>
+                </div>
+
+                <!-- Permisos de la semana -->
+                <div class="carousel-item">
+                  <div class="card">
+                    <h5 class="card-header bg-primary text-white">Permisos | Semana</h5>
+                    <div class="card-body">
+                      {% if permisos_semana %}
+                      <ul>
+                        {% for permiso in permisos_semana %}
+                        <li>{{ permiso.docente }} - {{ permiso.descripcion }} ({{permiso.fecha_inicio_permiso|date:"d/m/Y"}})</li>
+                        {% endfor %}
+                      </ul>
+                      {% else %}
+                      <p>No hay permisos solicitados esta semana.</p>
+                      {% endif %}
+                    </div>
+                    <h5 class="card-footer">Total: {{total_permisos_semana}} </h5>
+                  </div>
+                </div>
+
+                <!-- Permisos del mes -->
+                <div class="carousel-item">
+                  <div class="card">
+                    <h5 class="card-header bg-primary text-white">Permisos | Mes</h5>
+                    <div class="card-body">
+                      {% if permisos_mes %}
+                      <ul>
+                        {% for permiso in permisos_mes %}
+                        <li>{{ permiso.docente }} - {{ permiso.descripcion }} ({{permiso.fecha_inicio_permiso|date:"d/m/Y"}})</li>
+                        {% endfor %}
+                      </ul>
+                      {% else %}
+                      <p>No hay permisos solicitados este mes.</p>
+                      {% endif %}
+                    </div>
+                    <h5 class="card-footer">Total: {{total_permisos_mes}} </h5>
+                  </div>
+                </div>
+
+
+                <!-- Controles del carrusel -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#permisoCarousel"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#permisoCarousel"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              
+            </div>
+          </div>
+
+          <!--inicio card de conteo total permisos-->
+            
+          <div class="col-xl-4 col-md-4">
+            <div class="card">
+              <h5 class="card-header bg-primary text-white">Permisos | Totales</h5>
+              <div class="card-body">
+                <h3 class="d-flex align-items-center justify-content-center"> {{total_permisos}} </h3>              
+              </div>
+            </div>
+          </div>    
+
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
