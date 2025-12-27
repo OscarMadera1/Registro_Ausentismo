@@ -1,0 +1,5 @@
+<h1>Paris</h1>
+<p>Paris is the capital of France and one of the most iconic cities in the world. Renowned for its art, fashion, cuisine, and culture, Paris has long been a global symbol of elegance and sophistication.</p>
+<p>Located on the banks of the River Seine, the city has been a major hub for finance, diplomacy, commerce, science, and the arts since the 17th century. Its influence continues today, with Paris playing a leading role on the world stage in both cultural and political spheres.</p>
+<p>Home to world-famous landmarks such as the Eiffel Tower, Notre-Dame Cathedral, the Louvre Museum, and the Champs-Élysées, Paris attracts millions of visitors each year. It is also considered a fashion capital, hosting prestigious events like Paris Fashion Week and housing the headquarters of many top luxury brands.</p>
+<p>With its blend of historic charm and modern vibrancy, Paris remains a city of inspiration, innovation, and timeless beauty.</p>

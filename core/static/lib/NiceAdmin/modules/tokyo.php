@@ -1,0 +1,5 @@
+<h1>Tokyo</h1>
+<p>Tokyo is the capital of Japan and the most populous metropolitan area in the world, home to over 37 million people in its greater urban region. As a dynamic and densely populated city, Tokyo is a global powerhouse of economy, innovation, and culture.</p>
+<p>Originally known as Edo, the city became Japan’s capital in 1869, when Emperor Meiji moved the imperial seat from Kyoto and renamed it Tokyo, meaning “Eastern Capital.” Since then, it has evolved into a striking blend of modernity and tradition, where ancient temples sit alongside towering skyscrapers and cutting-edge technology.</p>
+<p>Tokyo is internationally recognized for its contributions to technology, design, fashion, and pop culture. It is also a center for culinary excellence, boasting more Michelin-starred restaurants than any other city in the world.</p>
+<p>From the buzzing streets of Shibuya to the serene gardens of the Imperial Palace, Tokyo offers a rich and diverse experience that reflects both its historical roots and futuristic vision.</p>
