@@ -32,6 +32,7 @@
                                 <th scope="col">N° documento</th>
                                 <th scope="col">Nombres</th>
                                 <th scope="col">Apellidos</th>
+                                <th scope="col">Sede</th>
                                 <th scope="col">Opciones</th>
                             </tr>
                         </thead>
@@ -44,6 +45,7 @@
                                 <td>{{c.numero_cedula}}</td>
                                 <td>{{c.name}}</td>
                                 <td>{{c.apellido}}</td>
+                                <td>{{c.escuela}}</td>
                                 <td>
                                     <a class="btn btn-primary me-1" href=" {% url "editar_docente" c.id %} " title="
                                         Editar"><i class="bi bi-pencil-square "></i></a><a class="btn btn-danger ms-1"

@@ -1,4 +1,118 @@
 {% extends "base.html" %}
 {% block title %}
+    Detalle de Permiso
 {{title}}
+{% endblock %}
+
+{% block table %}
+
+
+    <style>
+        .card-header-custom {
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #0d6efd;
+        }
+        .label-custom {
+            font-weight: 600;
+            color: #6c757d;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        .value-custom {
+            font-weight: 500;
+            color: #212529;
+            font-size: 1.1rem;
+        }
+        .img-preview {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+
+<main id="main" class="main">
+<body class="bg-light">
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="mb-4">
+                <a href="{% url "listar_permiso" %} " class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-arrow-left"></i> Volver al listado
+                </a>
+            </div>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-header card-header-custom py-3">
+                    <h4 class="mb-0 text-primary fw-bold">
+                        <i class="bi bi-file-earmark-text me-2"></i>Detalle del Permiso
+                    </h4>
+                </div>
+
+                <div class="card-body p-4">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <div class="p-3 bg-light rounded shadow-sm border-start border-4 border-primary">
+                                <p class="label-custom mb-1">Docente Responsable</p>
+                                <p class="value-custom mb-0 h5">
+                                    <i class="bi bi-person-badge me-2"></i>{{ permiso.docente }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <p class="label-custom mb-1">Fecha de Solicitud</p>
+                            <p class="value-custom">
+                                <i class="bi bi-calendar-plus me-2 text-info"></i>{{ permiso.fecha_solicitud|date:"d/m/Y" }}
+                            </p>
+                        </div>
+
+                        <div class="col-md-4">
+                            <p class="label-custom mb-1">Fecha Inicio</p>
+                            <p class="value-custom">
+                                <i class="bi bi-calendar-event me-2 text-success"></i>{{ permiso.fecha_inicio_permiso|date:"d/m/Y" }}
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="label-custom mb-1">Fecha Fin</p>
+                            <p class="value-custom">
+                                <i class="bi bi-calendar-check me-2 text-danger"></i>{{ permiso.fecha_fin_permiso|date:"d/m/Y" }}
+                            </p>
+                        </div>
+
+                        <hr class="my-2 opacity-25">
+
+                        <div class="col-12">
+                            <p class="label-custom mb-2">Descripción del Motivo</p>
+                            <div class="p-3 border rounded bg-white text-muted">
+                                {{ permiso.descripcion|default:"Sin descripción adicional." }}
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <p class="label-custom mb-2">Documento Adjunto / Solicitud</p>
+                            {% if permiso.imagen_solicitud %}
+                                <div class="text-center">
+                                    <img src="{{ permiso.imagen_solicitud.url }}" alt="Solicitud" class="img-preview mb-3" height="500" width="500">
+                                    <br>
+                                    <a href="{{ permiso.imagen_solicitud.url }}" target="_blank" class="btn btn-sm btn-primary">
+                                        <i class="bi bi-eye me-1"></i> Ver tamaño completo
+                                    </a>
+                                </div>
+                            {% else %}
+                                <div class="alert alert-warning py-2">
+                                    <i class="bi bi-exclamation-triangle me-2"></i> No se adjuntó ninguna imagen.
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</main>
 {% endblock %}
