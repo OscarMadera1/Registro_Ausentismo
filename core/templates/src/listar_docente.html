@@ -37,17 +37,20 @@
                         </thead>
                         <tbody>
                             {% for c in object_list %}
+                                {% if c.estado == True %}
                             <tr>
                                 <th scope="row">{{forloop.counter}}</th>
                                 <td>{{c.documento}}</td>
                                 <td>{{c.numero_cedula}}</td>
                                 <td>{{c.name}}</td>
                                 <td>{{c.apellido}}</td>
-                                <td><a class="btn btn-primary me-1" href=" {% url "editar_docente" c.id %} " title="
+                                <td>
+                                    <a class="btn btn-primary me-1" href=" {% url "editar_docente" c.id %} " title="
                                         Editar"><i class="bi bi-pencil-square "></i></a><a class="btn btn-danger ms-1"
                                         href=" {% url "eliminar_docente" c.id %} "
                                         title=" Eliminar"><i class="bi bi-trash-fill"></i></a></td>
                             </tr>
+                                {% endif %}
                             {% endfor %}
                         </tbody>
 

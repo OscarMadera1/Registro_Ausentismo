@@ -34,6 +34,7 @@
                         </thead>
                         <tbody>
                             {% for c in object_list %}
+                                {% if c.estado == True %}
                             <tr>
                                 <th scope="row">{{forloop.counter}}</th>
                                 <td>{{c.nombre}}</td>
@@ -42,6 +43,7 @@
                                         href=" {% url "eliminar_sede" c.id %} "
                                         title=" Eliminar"><i class="bi bi-trash-fill"></i></a></td>
                             </tr>
+                                {% endif %}
                             {% endfor %}
                         </tbody>
 

@@ -47,6 +47,8 @@
                                 <td>{{c.fecha_fin_permiso}}</td>
                                 <td>{{c.descripcion}}</td>
                                 <td>
+                                    <a class="btn btn-warning btn-sm m-0.5" href=" {% url "ver_permiso" c.id %} " title="
+                                        Ver"><i class="bi bi-eye-fill "></i></a>
                                     <a class="btn btn-primary btn-sm m-0.5" href=" {% url "editar_permiso" c.id %} " title="
                                         Editar"><i class="bi bi-pencil-square "></i>
                                     </a>

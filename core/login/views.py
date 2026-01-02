@@ -8,6 +8,7 @@ from django.views.generic import TemplateView, ListView, CreateView, UpdateView,
 from django.urls import reverse_lazy
 from .models import Docente, Permiso, Sede
 from .forms import DocenteForm, PermisoForm, SedeForm
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -101,20 +102,30 @@ class EditarDocente(UpdateView):
         context['title'] = 'Editar docente'
         return context
 
-
-class EliminarDocente(DeleteView):
-    """
-    Elimnar registro de un docente
-    """
+class EliminarDocente(LoginRequiredMixin, DeleteView):
     model = Docente
+    template_name = 'login/docente_confirm_delete.html'
     success_url = reverse_lazy('listar_docente')
+
+    def post(self, request, *args, **kwargs):
+        """
+        Sobrescribimos post para evitar que se llame al borrado físico.
+        """
+        self.object = self.get_object()
+        success_url = self.get_success_url()
+
+        # Lógica de Soft Delete
+        self.object.estado = False
+        self.object.save()
+
+        return HttpResponseRedirect(success_url)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Eliminar docente'
         return context
 
-# views permisos
+    # views permisos
 
 
 class ListarPermisos(ListView):
@@ -130,6 +141,16 @@ class ListarPermisos(ListView):
         context['title'] = 'Listado de permisos'
         return context
 
+def ver_permiso(request, pk):
+    """
+    vista para ver detalle del permiso
+    """
+    permiso = Permiso.objects.get(pk=pk)
+    context = {
+        'title': 'Detalle del permiso',
+        'permiso': permiso
+    }
+    return render(request, 'src/ver_permiso.html', context)
 
 class CrearPermiso(CreateView):
     """
@@ -226,6 +247,19 @@ class EliminarSede(DeleteView):
     """
     model = Sede
     success_url = reverse_lazy('listar_sedes')
+
+    def post(self, request, *args, **kwargs):
+        """
+        Sobrescribimos post para evitar que se llame al borrado físico.
+        """
+        self.object = self.get_object()
+        success_url = self.get_success_url()
+
+        # Lógica de Soft Delete
+        self.object.estado = False
+        self.object.save()
+
+        return HttpResponseRedirect(success_url)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

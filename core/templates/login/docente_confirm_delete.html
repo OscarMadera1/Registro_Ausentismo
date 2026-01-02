@@ -22,7 +22,7 @@
         {% csrf_token %}
         <p><strong>¿Desea eliminar el docente {{object.name|upper}} {{object.apellido|upper}} definitivamente?</strong></p>
         <button class="btn btn-danger" type="submit"><i class="bi bi-trash-fill "></i> Eliminar</button>
-        <a href=" {% url "listar_docente" %} " class="btn btn-primary" type="reset"><i class="bi bi-x-diamond-fill"></i> Cancelar</a>
+        <a href="{% url "listar_docente" %}" class="btn btn-primary" type="reset"><i class="bi bi-x-diamond-fill"></i> Cancelar</a>
     </form>
 </main>
 

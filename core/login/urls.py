@@ -2,7 +2,7 @@
 path
 """
 from django.urls import path
-from login.views import Contacto, CrearSede, EditarSede, EliminarSede, Index, CrearDocente, ListarDocente, EditarDocente, EliminarDocente, ListarPermisos, CrearPermiso, EditarPermiso, EliminarPermiso, ListarSedes, Reportes
+from login.views import Contacto, CrearSede, EditarSede, EliminarSede, Index, CrearDocente, ListarDocente, EditarDocente, EliminarDocente, ListarPermisos,ver_permiso, CrearPermiso, EditarPermiso, EliminarPermiso, ListarSedes, Reportes
 
 
 urlpatterns = [
@@ -14,11 +14,10 @@ urlpatterns = [
     path('crear_docente/', CrearDocente.as_view(), name='crear_docente'),
     path('editar_docente/<int:pk>',
          EditarDocente.as_view(), name='editar_docente'),
-    path('eliminar_docente/<int:pk>',
-         EliminarDocente.as_view(), name='eliminar_docente'),
-
+    path('eliminar_docente/<int:pk>',EliminarDocente.as_view(), name='eliminar_docente'),
     # Urls Permisos
     path('listar_permiso/', ListarPermisos.as_view(), name='listar_permiso'),
+    path('ver_permiso/<int:pk>', ver_permiso, name='ver_permiso'),
     path('crear_permiso/', CrearPermiso.as_view(), name='crear_permiso'),
     path('editar_permiso/<int:pk>',
          EditarPermiso.as_view(), name='editar_permiso'),

@@ -9,6 +9,7 @@ class Sede(models.Model):
     Este modo crea las diferentes sedes de la institución educativa
     """
     nombre = models.CharField(max_length=200)
+    estado = models.BooleanField(default=True)
 
     def __str__(self):
         """
@@ -44,6 +45,7 @@ class Docente(models.Model):
     escuela = models.ForeignKey(
         Sede, default="LA MILAGROSA", on_delete=models.CASCADE)
     email = models.EmailField(blank=True, null=True)
+    estado = models.BooleanField(default=True)
 
     def __str__(self):
         return f"{self.name} {self.apellido}"
@@ -64,6 +66,7 @@ class Permiso(models.Model):
     descripcion = models.TextField(null=True, blank=True)
     imagen_solicitud = models.ImageField(
         upload_to='solicitudes/', null=True, blank=True)
+    estado = models.BooleanField(default=True)
 
     def __str__(self):
         return f"Permiso de {self.docente} - {self.fecha_solicitud}"
